@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Details</title>
+</head>
+<body>
+
+<h2>Student Details</h2>
+
+<!-- Student Information -->
+<p><strong>First Name:</strong> <span th:text="${student.firstName}"></span></p>
+<p><strong>Last Name:</strong> <span th:text="${student.lastName}"></span></p>
+<p><strong>Age:</strong> <span th:text="${student.age}"></span></p>
+<p><strong>Level:</strong> <span th:text="${student.level}"></span></p>
+<p><strong>Department:</strong> <span th:text="${student.department}"></span></p>
+
+<hr>
+
+<!-- Registered Courses -->
+<h3>Registered Courses</h3>
+
+<!-- If student has no courses -->
+<div th:if="${#lists.isEmpty(student.courses)}">
+    <p>No courses registered yet.</p>
+</div>
+
+<!-- If student has courses -->
+<table th:if="${!#lists.isEmpty(student.courses)}" border="1" cellpadding="6">
+    <thead>
+    <tr>
+        <th>Course Name</th>
+        <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="course : ${student.courses}">
+        <td th:text="${course.name}"></td>
+        <td th:text="${course.description}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+
+<!-- Register new course -->
+<a th:href="@{'/students/' + ${student.id} + '/register'}">➕ Register for Course</a>
+
+<br><br>
+
+<!-- Back to list -->
+<a th:href="@{/students/all}">⬅️ Back to Student List</a>
+
+</body>
+</html>

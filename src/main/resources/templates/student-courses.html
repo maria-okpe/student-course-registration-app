@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Courses by Student</title>
+</head>
+<body>
+<h2 th:text="'Courses taken by ' + ${studentName}"></h2>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Course Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="sc : ${studentCourses}">
+        <!-- Look up course name using courseId -->
+        <td th:text="${#lists.find(courses, c -> c.id == sc.studentId)?.name} ?: 'Unknown Course'"></td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{'/students/list'}">⬅ Back to Student List</a>
+</body>
+</html>

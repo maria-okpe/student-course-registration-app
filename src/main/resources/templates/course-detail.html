@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Course Details</title>
+</head>
+<body>
+<h2>Course Details</h2>
+
+<p><b>Course Name:</b> <span th:text="${course.courseName}"></span></p>
+<p><b>Course Code:</b> <span th:text="${course.courseCode}"></span></p>
+<p><b>Description:</b> <span th:text="${course.description}"></span></p>
+
+<h3>Register a Student for this Course</h3>
+<form th:action="@{/courses/register}" method="post">
+    <label>Student ID:</label>
+    <input type="text" name="studentId" placeholder="Enter student UUID" required/><br/>
+
+    <input type="hidden" name="courseId" th:value="${course.id}" />
+    <button type="submit">Register Student</button>
+</form>
+
+<h3>Registered Students:</h3>
+<ul>
+    <li th:each="student : ${course.students}" th:text="${student.firstName + ' ' + student.lastName}"></li>
+</ul>
+
+<a th:href="@{/courses/all}">Back to Courses</a>
+</body>
+</html>

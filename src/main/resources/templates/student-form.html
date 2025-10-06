@@ -1,0 +1,49 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Student</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Create Student</h1>
+
+<form th:action="@{/students/save}" th:object="${student}" method="post">
+
+    <div>
+        <label for="firstName">First Name</label><br>
+        <input type="text" id="firstName" th:field="*{firstName}" required>
+    </div>
+    <br>
+
+    <div>
+        <label for="lastName">Last Name</label><br>
+        <input type="text" id="lastName" th:field="*{lastName}" required>
+    </div>
+    <br>
+
+    <div>
+        <label for="age">Age</label><br>
+        <input type="number" id="age" th:field="*{age}" required>
+    </div>
+    <br>
+
+    <div>
+        <label for="level">Level</label><br>
+        <input type="text" id="level" th:field="*{level}" required>
+    </div>
+    <br>
+
+    <div>
+        <label for="department">Department</label><br>
+        <input type="text" id="department" th:field="*{department}" required>
+    </div>
+    <br>
+
+    <button type="submit" style="background-color: green; color: white;">Save Student</button>
+</form>
+
+<br>
+<a th:href="@{/students/all}">Back to Student List</a>
+</body>
+</html>

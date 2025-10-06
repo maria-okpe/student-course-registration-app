@@ -1,0 +1,114 @@
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #fafafa;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 12px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 4px;
+        }
+
+        .add-btn:hover {
+            background-color: #218838;
+        }
+
+        p[th\\:if] {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Student List</h2>
+
+<!-- Show error message if any -->
+<p th:if="${errorMessage}" th:text="${errorMessage}"></p>
+
+<!-- Table of all students -->
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th>Level</th>
+        <th>Department</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- If no students -->
+    <tr th:if="${#lists.isEmpty(students)}">
+        <td colspan="6" style="text-align:center;">No students found.</td>
+    </tr>
+
+    <!-- Student rows -->
+    <tr th:each="student : ${students}">
+        <td th:text="${student.firstName}"></td>
+        <td th:text="${student.lastName}"></td>
+        <td th:text="${student.age}"></td>
+        <td th:text="${student.level}"></td>
+        <td th:text="${student.department}"></td>
+        <td>
+            <a th:href="@{'/students/' + ${student.id}}">View</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<br>
+<!-- ✅ Button to add new student -->
+<a href="/students/new" class="add-btn">➕ Add New Student</a>
+
+</body>
+</html>
+
