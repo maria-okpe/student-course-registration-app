@@ -84,6 +84,7 @@ public class CourseController {
     @PostMapping("/save")
     public String saveCourse(@ModelAttribute Course course) {
         courseService.saveCourse(course);
+        System.out.println("course: " + course);
         return "redirect:/courses/all"; // after save, go to list page
     }
 
