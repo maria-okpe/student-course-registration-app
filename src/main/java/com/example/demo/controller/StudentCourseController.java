@@ -34,7 +34,7 @@ public class StudentCourseController {
 
         if (student == null || course == null) {
             model.addAttribute("message", "❌ Invalid student or course.");
-            return "student-list";
+            return "student/student-list";
         }
 
         StudentCourse registration = new StudentCourse(student.getId(), course.getId());
@@ -42,14 +42,14 @@ public class StudentCourseController {
 
         model.addAttribute("message", "✅ " + student.getFirstName() + " successfully registered for " + course.getName());
         model.addAttribute("registrations", registrations);
-        return "registration-list";
+        return "student/registration-list";
     }
 
     // ✅ View all registrations
     @GetMapping("/all")
     public String getAllRegistrations(Model model) {
         model.addAttribute("registrations", registrations);
-        return "registration-list";
+        return "student/registration-list";
     }
 
     // ✅ List all courses a student is registered for
@@ -59,7 +59,7 @@ public class StudentCourseController {
 
         if (student == null) {
             model.addAttribute("errorMessage", "Student not found!");
-            return "student-list";
+            return "student/student-list";
         }
 
         List<StudentCourse> studentCourses = new ArrayList<>();
@@ -72,7 +72,7 @@ public class StudentCourseController {
         model.addAttribute("studentName", student.getFirstName());
         model.addAttribute("studentCourses", studentCourses);
         model.addAttribute("courses", courseService.findAllCourses());
-        return "student-courses";
+        return "student/student-courses";
     }
 
 }

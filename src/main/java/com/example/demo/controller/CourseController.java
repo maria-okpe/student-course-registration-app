@@ -52,9 +52,7 @@ public class CourseController {
  */
 
 
-
 package com.example.demo.controller;
-
 import com.example.demo.model.Course;
 import com.example.demo.service.CourseService;
 import org.springframework.stereotype.Controller;

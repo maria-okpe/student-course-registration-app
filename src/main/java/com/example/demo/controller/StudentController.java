@@ -87,7 +87,7 @@ public class StudentController {
     @GetMapping("/new")
     public String showForm(Model model) {
         model.addAttribute("student", new Student());
-        return "student-form";
+        return "student/student-form";
     }
 
     // ✅ Save student (POST)
@@ -101,7 +101,7 @@ public class StudentController {
     @GetMapping("/all")
     public String getAllStudents(Model model) {
         model.addAttribute("students", studentService.findAllStudent());
-        return "student-list";
+        return "student/student-list";
     }
 
     // ✅ View single student details
@@ -110,7 +110,7 @@ public class StudentController {
         Student student = studentService.findById(id);
         model.addAttribute("student", student);
         model.addAttribute("courses", student.getCourses());
-        return "student-detail";
+        return "student/student-detail";
     }
 
     // ✅ Show registration form
@@ -119,7 +119,7 @@ public class StudentController {
         Student student = studentService.findById(id);
         model.addAttribute("student", student);
         model.addAttribute("courses", courseService.findAllCourses());
-        return "student-register-course";
+        return "student/student-register-course";
     }
 
     // ✅ Handle registration form submission
