@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">About Me</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <h1>Maria Okpe</h1>
+    <nav>
+        <a th:href="@{/}" th:classappend="${pageTitle == 'Home'} ? 'active'">Home</a>
+        <a th:href="@{/about}" th:classappend="${pageTitle == 'About Me'} ? 'active'">About</a>
+        <a th:href="@{/projects}" th:classappend="${pageTitle == 'My Projects'} ? 'active'">Projects</a>
+        <a th:href="@{/contact}" th:classappend="${pageTitle == 'Contact Me'} ? 'active'">Contact</a>
+    </nav>
+</header>
+<section class="about-section">
+    <h2>About Me</h2>
+
+    <div class="about-content">
+        <div class="about-text">
+            <p>
+                Hello 👋, I’m <strong>Maria Okpe</strong>, a Software Engineer</strong>
+                who specializes in building clean, scalable, and efficient systems using
+                <strong>Java Spring Boot</strong> and <strong>Spring MVC</strong>.
+            </p>
+
+            <p>
+                I love creating server-side applications that connect seamlessly with the frontend,
+                manage data efficiently, and deliver a great user experience.
+                I’m currently focused on deepening my knowledge in <strong>Core Java</strong>
+                and exploring advanced backend design patterns.
+            </p>
+
+            <p>
+                Beyond coding, I’m a problem solver at heart who enjoys learning, sharing knowledge,
+                and collaborating on meaningful projects that make an impact.
+            </p>
+
+            <h3>💻 Technical Skills</h3>
+            <ul>
+                <li><strong>Backend:</strong> Java, Spring Boot, Spring MVC, Hibernate, REST APIs</li>
+                <li><strong>Database:</strong> MySQL, H2</li>
+                <li><strong>Frontend:</strong> HTML, CSS, Thymeleaf</li>
+                <li><strong>Tools:</strong> Git, Maven, IntelliJ IDEA</li>
+            </ul>
+
+            <h3>🎯 Career Goal</h3>
+            <p>
+                My goal is to become a skilled <strong>Full-Stack Developer</strong>
+                with a strong backend foundation, contributing to projects that
+                solve real-world problems and bring value to users.
+            </p>
+
+            <a href="mailto:mariaokpe12@gmail.com" class="contact-btn">📩 Hire Me</a>
+        </div>
+
+        <div class="about-image">
+            <img th:src="@{/images/profile.jpg}" alt="maria okpe" class="profile-img">
+
+        </div>
+    </div>
+</section>
+<footer class="footer">
+    <p>© 2025 Maria Okpe | Backend Software Engineer</p>
+    <div class="social-links">
+        <a href="mailto:mariaokpe12@gmail.com?subject=Portfolio Inquiry&body=Hello Maria" target="_blank" class="email"><i class="fa-solid fa-envelope fa-lg"></i></a>
+        <a href="https://github.com/maria-okpe" target="_blank" class="github"><i class="fa-brands fa-github fa-lg"></i></a>
+        <a href="https://www.linkedin.com/in/maria-okpe-280046270/" target="_blank" class="linkedin"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+    </div>
+</footer>
+
+</body>
+</html>

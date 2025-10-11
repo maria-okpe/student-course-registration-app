@@ -1,0 +1,95 @@
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title th:text="${pageTitle}">Contact Me</title>-->
+<!--    <link rel="stylesheet" th:href="@{/css/style.css}">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<header>-->
+<!--    <h1>Maria Okpe</h1>-->
+<!--    <nav>-->
+<!--        <a th:href="@{/}">Home</a>-->
+<!--        <a th:href="@{/about}">About</a>-->
+<!--        <a th:href="@{/projects}">Projects</a>-->
+<!--        <a th:href="@{/contact}">Contact</a>-->
+<!--    </nav>-->
+<!--</header>-->
+
+<!--<section class="contact-section">-->
+<!--    <h2 class="center-text">Contact Me</h2>-->
+<!--    <p class="center-text>If you’d like to reach out, please fill out the form below.</p>-->
+
+<!--    &lt;!&ndash; Show success message if form was submitted &ndash;&gt;-->
+<!--    <p class="success" th:if="${successMessage}" th:text="${successMessage}"></p>-->
+
+<!--    &lt;!&ndash; Contact Form &ndash;&gt;-->
+<!--    <form th:action="@{/contact}" th:object="${contactMessage}" method="post" class="contact-form">-->
+<!--        <label for="name">Full Name</label>-->
+<!--        <input type="text" id="name" th:field="*{name}" placeholder="Enter your name" required>-->
+
+<!--        <label for="email">Email</label>-->
+<!--        <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" required>-->
+
+<!--        <label for="message">Message</label>-->
+<!--        <textarea id="message" th:field="*{message}" placeholder="Write your message" rows="5" required></textarea>-->
+
+<!--        <button type="submit">Send Message</button>-->
+<!--    </form>-->
+<!--</section>-->
+
+<!--<footer>-->
+<!--    <p>&copy; 2025 Maria Okpe. All rights reserved.</p>-->
+<!--</footer>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Contact Me</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<header>
+    <h1>Maria Okpe</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{/projects}">Projects</a>
+        <a th:href="@{/contact}">Contact</a>
+    </nav>
+</header>
+
+<section class="contact-section">
+    <h2 class="center-text">Contact Me</h2>
+    <p class="center-text">If you’d like to reach out, please fill out the form below.</p>
+
+    <!-- Success message -->
+    <p class="success" th:if="${successMessage}" th:text="${successMessage}"></p>
+
+    <form th:action="@{/contact}" th:object="${contactMessage}" method="post" class="contact-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" th:field="*{name}" placeholder="Enter your name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" th:field="*{email}" placeholder="Enter your email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" th:field="*{message}" placeholder="Write your message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>&copy; 2025 Maria Okpe. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

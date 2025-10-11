@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${pageTitle}">Portfolio</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<header>
+    <h1>Maria Okpe</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/about}">About</a>
+        <a th:href="@{/projects}">Projects</a>
+        <a th:href="@{/contact}">Contact</a>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>Welcome to My Portfolio</h2>
+    <p>I'm a Backend Software Engineer passionate about building clean, scalable systems using Java Spring Boot.</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Maria Okpe. All rights reserved.</p>
+</footer>
+</body>
+</html>
